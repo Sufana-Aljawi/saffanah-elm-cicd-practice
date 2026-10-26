@@ -8,7 +8,7 @@ def get_version():
     return APP_VERSION
 
 def get_status():
-    return 500
+    return 200
 
 class PulseHandler(BaseHTTPRequestHandler):
     def do_GET(self):
