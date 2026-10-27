@@ -1,0 +1,22 @@
+
+name: Pulse Container Security Scan
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Scan Docker Image with Trivy
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: ghcr.io/sufana-aljawi/saffanah-elm-cicd-practice:latest
+          format: table
+          vuln-type: os,library
+          severity: HIGH,CRITICAL
+          exit-code: '0'
